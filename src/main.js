@@ -221,6 +221,10 @@ function configureCommandlineSwitchesSync(cliArgs) {
 		}
 	});
 
+	// enable transparent
+	app.commandLine.appendSwitch('enable-transparent-visuals');
+	app.commandLine.appendSwitch('use-gl', 'desktop');
+
 	// Support JS Flags
 	const jsFlags = getJSFlags(cliArgs);
 	if (jsFlags) {

@@ -471,6 +471,7 @@ export class CodeApplication extends Disposable {
 	}
 
 	async startup(): Promise<void> {
+		await new Promise((resolve) => setTimeout(resolve, 400));
 		this.logService.debug('Starting VS Code');
 		this.logService.debug(`from: ${this.environmentMainService.appRoot}`);
 		this.logService.debug('args:', this.environmentMainService.args);

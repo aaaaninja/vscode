@@ -3,7 +3,7 @@
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
-import { BrowserWindow, nativeTheme } from 'electron';
+import { nativeTheme } from 'electron';
 import { Emitter, Event } from 'vs/base/common/event';
 import { Disposable } from 'vs/base/common/lifecycle';
 import { isLinux, isMacintosh, isWindows } from 'vs/base/common/platform';
@@ -112,19 +112,6 @@ export class ThemeMainService extends Disposable implements IThemeMainService {
 			{ key: THEME_WINDOW_SPLASH, data: splash }
 		]);
 
-		// Update in opened windows
-		if (typeof windowId === 'number') {
-			this.updateBackgroundColor(windowId, splash);
-		}
-	}
-
-	private updateBackgroundColor(windowId: number, splash: IPartsSplash): void {
-		for (const window of BrowserWindow.getAllWindows()) {
-			if (window.id === windowId) {
-				window.setBackgroundColor(splash.colorInfo.background);
-				break;
-			}
-		}
 	}
 
 	getWindowSplash(): IPartsSplash | undefined {

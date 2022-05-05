@@ -6,23 +6,25 @@
 import { localize } from 'vs/nls';
 import { registerColor, editorBackground, contrastBorder, transparent, editorWidgetBackground, textLinkForeground, lighten, darken, focusBorder, activeContrastBorder, editorWidgetForeground, editorErrorForeground, editorWarningForeground, editorInfoForeground, treeIndentGuidesStroke, errorForeground, listActiveSelectionBackground, listActiveSelectionForeground, editorForeground } from 'vs/platform/theme/common/colorRegistry';
 import { IColorTheme } from 'vs/platform/theme/common/themeService';
-import { Color } from 'vs/base/common/color';
+import { Color, RGBA } from 'vs/base/common/color';
 import { ColorScheme } from 'vs/platform/theme/common/theme';
 
 // < --- Workbench (not customizable) --- >
 
-export function WORKBENCH_BACKGROUND(theme: IColorTheme): Color {
-	switch (theme.type) {
-		case ColorScheme.LIGHT:
-			return Color.fromHex('#F3F3F3');
-		case ColorScheme.HIGH_CONTRAST_LIGHT:
-			return Color.fromHex('#FFFFFF');
-		case ColorScheme.HIGH_CONTRAST_DARK:
-			return Color.fromHex('#000000');
-		default:
-			return Color.fromHex('#252526');
-	}
-}
+export const WORKBENCH_BACKGROUND = (theme: IColorTheme) => theme.getColor(
+   registerColor(
+       'workbench.background',
+       {
+           dark: '#252526',
+           light: '#F3F3F3',
+           hc: '#000000'
+       },
+       localize(
+           'workbenchBackground',
+           'Top-level background color. Not seen unless other elements have a transparent color.'
+       )
+   )
+) || new Color(new RGBA(0, 0, 0, 0));
 
 // < --- Tabs --- >
 
