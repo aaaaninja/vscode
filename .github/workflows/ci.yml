@@ -81,7 +81,7 @@ jobs:
       - name: katameru
         run: |
           cd ..
-          caf vvvv.tar vscode
+          tar caf vvvv.tar vscode
 
       - name: Upload Artifacts (win)
         uses: actions/upload-artifact@v3
