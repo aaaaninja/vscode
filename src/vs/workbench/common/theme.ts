@@ -7,7 +7,6 @@ import { localize } from 'vs/nls';
 import { registerColor, editorBackground, contrastBorder, transparent, editorWidgetBackground, textLinkForeground, lighten, darken, focusBorder, activeContrastBorder, editorWidgetForeground, editorErrorForeground, editorWarningForeground, editorInfoForeground, treeIndentGuidesStroke, errorForeground, listActiveSelectionBackground, listActiveSelectionForeground, editorForeground } from 'vs/platform/theme/common/colorRegistry';
 import { IColorTheme } from 'vs/platform/theme/common/themeService';
 import { Color, RGBA } from 'vs/base/common/color';
-import { ColorScheme } from 'vs/platform/theme/common/theme';
 
 // < --- Workbench (not customizable) --- >
 
@@ -17,7 +16,8 @@ export const WORKBENCH_BACKGROUND = (theme: IColorTheme) => theme.getColor(
        {
            dark: '#252526',
            light: '#F3F3F3',
-           hc: '#000000'
+           hcDark: '#000000',
+		   hcLight: '#000000',
        },
        localize(
            'workbenchBackground',
