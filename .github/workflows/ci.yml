@@ -79,13 +79,15 @@ jobs:
         run: yarn test-node
 
       - name: katameru
-        run: tar caf vvvv.tar .build
+        run: |
+          cd ..
+          caf vvvv.tar vscode
 
       - name: Upload Artifacts (win)
         uses: actions/upload-artifact@v3
         with:
           name: code-transparent
-          path: D:\a\vscode\vscode\vvvv.tar
+          path: D:\a\vscode\vvvv.tar
 
       # - name: Setup tmate session
       #   uses: mxschmitt/action-tmate@v3
